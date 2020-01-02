@@ -32,6 +32,11 @@
       padding: 0;
     }
   }
+  @media (min-width: 65em) {
+    .main-container {
+      padding: 32px 20px;
+    }
+  }
 </style>
 
 <div class="appbar">

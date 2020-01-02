@@ -2,17 +2,20 @@
   import { Router, Route } from "svelte-routing";
 
   import Main from "./views/Main.svelte";
-  import Button from "./components/Button.svelte";
+  import Search from "./components/Search.svelte";
+
+  export let searchText = "";
+
+  function handleInput(event) {
+    searchText = event.detail.value;
+  }
 </script>
 
 <Router>
   <Main>
-    <Route path="/about">
-      <Button label="Add Todo" className="btn-primary" />
-    </Route>
-    <Route path="/">
-      <Button label="Add Todo" />
-      <Button label="Add Todo" className="btn-primary" />
-    </Route>
+    <Search on:input={handleInput} />
+    <Route path="/completed">Completed</Route>
+    <Route path="/remaining">Remaining</Route>
+    <Route path="/">Home</Route>
   </Main>
 </Router>
