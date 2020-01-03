@@ -73,7 +73,7 @@
         6.206a.403.403 0 0 1 .299-.131c.112 0 .224.046.299.13l1.85 1.963z" />
     </svg>
     <TabBar />
-    <IconButton name="add_circle" iconClassName="blue" />
+    <!--<IconButton name="add_circle" iconClassName="blue" />-->
   </Container>
 </div>
 <div class="main-container">
