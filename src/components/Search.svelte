@@ -1,4 +1,6 @@
 <script>
+  import Icon from "./Icon.svelte";
+
   // Props
   export let className = "";
   export let containerClassName = "";
@@ -13,6 +15,8 @@
       value: event.target.value
     });
   }
+
+  export let focused = false;
 </script>
 
 <style>
@@ -48,6 +52,13 @@
     border: 2px solid #49c;
   }
 
+  :global(.search-container .search-icon) {
+    top: 17px;
+    right: 20px;
+    position: absolute;
+    pointer-events: none;
+  }
+
   @media (min-width: 30em) {
     .search-container {
       display: block;
@@ -59,5 +70,10 @@
   <input
     class={`search-bar ${className}`}
     placeholder="Search"
-    on:input={handleClick} />
+    on:input={handleClick}
+    on:focus={() => (focused = true)}
+    on:blur={() => (focused = false)} />
+  <Icon
+    name="search"
+    className={`light search-icon ${focused ? 'blue' : ''}`} />
 </div>
